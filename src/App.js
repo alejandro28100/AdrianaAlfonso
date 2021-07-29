@@ -1,30 +1,20 @@
-import { Swiper, SwiperSlide } from "swiper/react"
+import ServiceSection from "./components/ServiceSection"
+import "swiper/swiper.min.css";
 
 function App() {
-  const swiperSettings = {
-    spaceBetween: 50,
-    slidesPerView: 1,
-    onSlideChange: () => console.log("Slide change"),
-    onSwiper: (swiper) => console.log(swiper)
-  }
   return (
     <div className="">
-      <Swiper {...swiperSettings}>
-        <SwiperSlide>
-          1
-        </SwiperSlide>
-        <SwiperSlide>
-          2
-        </SwiperSlide>
-        <SwiperSlide>
-          3
-        </SwiperSlide>
-        <SwiperSlide>
-          4
-        </SwiperSlide>
-      </Swiper>
-      <header className="">
-      </header>
+      <ServiceSection
+        serviceName="Branding para eventos"
+        serviceDescription="Creación de recursos físicos y digitales para eventos."
+        descriptionAlignment="left"
+        images={[
+          { source: "/images/4a.png" },
+          { source: "/images/4b.png" },
+          { source: "/images/4c.png" },
+          { source: "/images/4d.png" }
+        ]}
+      />
     </div>
   );
 }
