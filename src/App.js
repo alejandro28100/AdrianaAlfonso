@@ -7,6 +7,17 @@ function App() {
     <div className="overflow-x-hidden">
 
       <ServiceSection
+        serviceName={<>Branding/ <br /> para eventos</>}
+        serviceDescription="Creación de recursos físicos y digitales para eventos."
+        infoAlignment="right"
+        images={[
+          { source: "/images/ex-1a1.png", labelColor: "#434655", alt: "Boletos para eventos", },
+          { source: "/images/ex-1b.png", labelColor: "#434655", alt: "Invitaciones para eventos", },
+          { source: "/images/ex-1c.png", labelColor: "#434655", alt: "Banners para eventos", },
+        ]}
+      />
+
+      <ServiceSection
         serviceName={<>Creación <br /> de logos</>}
         serviceDescription="CONCEPTUALIZACIÓN, BRANDING, MANUAL DE MARCA Y MOKUPS."
         infoAlignment="left"
@@ -60,6 +71,7 @@ function App() {
           { source: "/images/8d.png", labelColor: "#EDBE26", alt: "Ilustraciones" },
         ]}
       />
+
 
     </div>
   );

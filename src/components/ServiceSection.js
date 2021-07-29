@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { SwiperSlide, Swiper } from "swiper/react"
+import SwiperCore, { Navigation, Pagination } from "swiper"
 
 import PropTypes from "prop-types";
 
+SwiperCore.use([Navigation, Pagination]);
 
 const ServiceSection = (props) => {
 
@@ -18,10 +20,6 @@ const ServiceSection = (props) => {
         }
     }
 
-    function handleAutoPlay() {
-        console.log("Auto play started");
-    }
-
     return (
         <div className="w-screen h-screen flex-col lg:flex-row flex" >
             <article className={`flex flex-col w-full justify-center flex-1 py-12 px-5 lg:px-16 text-center ${props.infoAlignment === "left" ? "lg:text-left" : "lg:text-right"}  `} >
@@ -29,11 +27,26 @@ const ServiceSection = (props) => {
                 <hr style={{ background: labelColor }} className={`transition-colors ease-in-out duration-300 h-1.5 bg-black my-2 w-1/2 md:w-1/3 mx-auto ${props.infoAlignment === "left" ? "lg:mx-0 lg:mr-auto" : "lg:mx-0 lg:ml-auto"}`} />
                 <p className="uppercase lg:text-lg">{props.serviceDescription}</p>
             </article>
-            <Swiper autoplay onAutoplayStart={handleAutoPlay} className={`w-full lg:w-2/3 ${props.infoAlignment === "left" ? "lg:order-last" : "lg:order-first"}`} {...swiperSettings} >
+            <Swiper
+                className={`w-full lg:w-2/3 
+                    ${props.infoAlignment === "left"
+                        ? "lg:order-last"
+                        : "lg:order-first"
+                    }`}
+                {...swiperSettings}
+            >
                 {
-                    props.images.map(({ source, alt }, index) => (
-                        <SwiperSlide key={index}>
-                            <img className={`h-full object-contain mx-auto ${props.infoAlignment === "left" ? "lg:ml-auto lg:mr-1" : "lg:mr-auto lg:ml-1"}`} src={source} alt={alt} />
+                    props.images.map(({ source, alt, containerClassNames }, index) => (
+                        <SwiperSlide className={containerClassNames} key={index}>
+                            <img
+                                className={`h-full object-contain mx-auto
+                                    ${props.infoAlignment === "left"
+                                        ? "lg:ml-auto lg:mr-1"
+                                        : "lg:mr-auto lg:ml-1"
+                                    }`}
+                                src={source}
+                                alt={alt}
+                            />
                         </SwiperSlide>
                     ))
                 }
@@ -49,7 +62,8 @@ ServiceSection.propTypes = {
             source: PropTypes.string.isRequired,
             labelColor: PropTypes.string.isRequired,
             alt: PropTypes.string.isRequired,
-        }).isRequired
+            containerClassNames: PropTypes.string,
+        }),
     ).isRequired,
     infoAlignment: PropTypes.oneOf(["left", "right"]).isRequired,
     serviceName: PropTypes.oneOfType([
