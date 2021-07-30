@@ -1,5 +1,7 @@
 import ServiceSection from "./components/ServiceSection"
 import "swiper/swiper.min.css";
+import "swiper/components/pagination/pagination.min.css"
+
 import "./index.css";
 
 function App() {
@@ -30,6 +32,7 @@ function App() {
       />
 
       <ServiceSection
+        bulletsColor="dark"
         serviceName={<>Diseño <br /> de recursos</>}
         serviceDescription="INFOGRAFÍAS, PUBLICACIONES PARA REDES SOCIALES, FLYERS, MEMBRESÍAS Y MÁS."
         infoAlignment="right"
@@ -41,6 +44,7 @@ function App() {
       />
 
       <ServiceSection
+        bulletsColor="dark"
         serviceName={<>Retoque y <br /> edición</>}
         serviceDescription="RETOQUE FOTOGRÁFICO, RECONSTRUCCIÓN Y PRODUCIIÓN DIGITAL."
         infoAlignment="left"
@@ -51,6 +55,7 @@ function App() {
       />
 
       <ServiceSection
+        imagesDelay={4000}
         serviceName={<>Personaje y <br /> stickers</>}
         serviceDescription="CREACIÓN DE PERSONAJE O MASCOTA PARA MARCA Y STICKERS PARA WHATSAPP."
         infoAlignment="right"
@@ -71,7 +76,6 @@ function App() {
           { source: "/images/8d.png", labelColor: "#EDBE26", alt: "Ilustraciones" },
         ]}
       />
-
 
     </div>
   );
