@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import ReactDOMServer from "react-dom/server";
 import { SwiperSlide, Swiper } from "swiper/react"
 import SwiperCore, { Pagination, Autoplay } from "swiper"
 
