@@ -221,7 +221,7 @@ function App() {
           </div>
         </div>
         <form name="Contacto | Adriana Alfonso" method="post" className="mx-5 text-black flex w-1/2 items-center flex-col">
-          <input type="hidden" name="form-name" value="contact-form" />
+          <input type="hidden" name="Contacto | Adriana Alfonso" value="contact-form" />
           <div className="my-2 w-full">
             <label className="block" htmlFor="name">Nombre</label>
             <input id="name" name="Nombre" className="p-1 rounded w-full" type="text" placeholder="Nombre" />
