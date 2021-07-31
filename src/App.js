@@ -1,14 +1,76 @@
+import { useState, useEffect } from "react";
 import ServiceSection from "./components/ServiceSection"
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css"
 
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+
 import "./index.css";
 
 function App() {
+
+  const [isSibarActive, setIsSibarActive] = useState(false);
+
+  useEffect(() => {
+    let { classList } = document.body;
+    if (isSibarActive) {
+      classList.add("overflow-hidden");
+    } else {
+      classList.remove("overflow-hidden");
+    }
+  }, [isSibarActive])
+
   return (
     <div className="overflow-x-hidden">
 
+      <header className="w-screen h-screen relative bg-no-repeat bg-cover bg-center" style={{ backgroundImage: "url('/images/1.png')" }}>
+        <nav className="flex flex-col justify-start lg:justify-end h-full">
+          <button onClick={() => setIsSibarActive(true)} className={`p-4 self-end lg:hidden text-white text-center ${isSibarActive && "opacity-0"} transition-opacity duration-300 ease-in`} >
+            <AiOutlineMenu className="w-8 h-8" />
+          </button>
+          <ul className="hidden lg:flex flex-1 justify-start lg:justify-end text-2xl p-14">
+            <li className="mx-10 cursor-pointer self-start pb-1 border-b-2 border-transparent hover:border-black transition-colors ease-in duration-300">
+              <a href="#about">
+                Sobre mí
+              </a>
+            </li>
+            <li className="mx-10 cursor-pointer self-start pb-1 border-b-2 border-transparent hover:border-black transition-colors ease-in duration-300">
+              <a href="#education">
+                Formación
+              </a>
+            </li>
+            <li className="mx-10 cursor-pointer self-start pb-1 border-b-2 border-transparent hover:border-black transition-colors ease-in duration-300">
+              <a href="#experience">
+                Experiencia
+              </a>
+            </li>
+            <li className="mx-10 cursor-pointer self-start pb-1 border-b-2 border-transparent hover:border-black transition-colors ease-in duration-300">
+              <a href="#contact">
+                Contacto
+              </a>
+            </li>
+          </ul>
+          <h1 className="font-ArimaMadurai text-8xl mt-auto text-white p-14">Adriana <br /> Alfonso</h1>
+        </nav>
+        <nav aria-hidden={!isSibarActive} className={`absolute inset-0 bg-black text-white w-full h-full transition-opacity duration-300 ease-in ${isSibarActive ? "opacity-60 z-auto " : "opacity-0 -z-1"} `} >
+
+          <ul className="flex flex-col items-center justify-center font-ArimaMadurai text-2xl p-5">
+            <li className="w-full text-right">
+              <button onClick={() => setIsSibarActive(false)}>
+                <AiOutlineClose className="w-8 h-8" />
+              </button>
+            </li>
+            <li className="py-4">Inicio</li>
+            <li className="py-4">Sobre mí</li>
+            <li className="py-4">Formación</li>
+            <li className="py-4">Experiencia</li>
+            <li className="py-4">Contacto</li>
+          </ul>
+        </nav>
+      </header>
+
       <ServiceSection
+        id="experience"
         serviceName={<>Branding/ <br /> para eventos</>}
         serviceDescription="Creación de recursos físicos y digitales para eventos."
         infoAlignment="right"
