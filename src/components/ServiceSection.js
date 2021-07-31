@@ -21,8 +21,8 @@ const ServiceSection = (props) => {
     }
 
     return (
-        <div className="w-screen h-screen flex-col lg:flex-row flex">
-            <article style={{ minWidth: "500px" }} className={`flex flex-col justify-center flex-1 py-12 px-20 lg:px-16 text-center ${props.infoAlignment === "left" ? "lg:text-left" : "lg:text-right"}  `} >
+        <section id={props.id} className="w-screen h-screen flex-col lg:flex-row flex">
+            <article className={`min-w-0 md:min-w-500 flex flex-col justify-center flex-1 py-12 px-20 lg:px-16 text-center ${props.infoAlignment === "left" ? "lg:text-left" : "lg:text-right"}  `} >
                 <h1 className="font-ArimaMadurai text-4xl lg:text-6xl leading-tight">{props.serviceName}</h1>
                 <hr style={{ background: labelColor }} className={`transition-colors ease-in-out duration-300 h-1.5 bg-black my-2 w-1/2 md:w-1/6 mx-auto ${props.infoAlignment === "left" ? "lg:mx-0 lg:mr-auto" : "lg:mx-0 lg:ml-auto"}`} />
                 <p className="uppercase lg:text-lg">{props.serviceDescription}</p>
@@ -61,8 +61,7 @@ const ServiceSection = (props) => {
                     </SwiperSlide>
                 ))}
             </Swiper>
-
-        </div>
+        </section>
     )
 }
 
@@ -73,6 +72,7 @@ ServiceSection.defaultProps = {
 }
 
 ServiceSection.propTypes = {
+    id: PropTypes.string,
     images: PropTypes.arrayOf(
         PropTypes.shape({
             source: PropTypes.string.isRequired,
