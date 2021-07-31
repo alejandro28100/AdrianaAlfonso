@@ -199,7 +199,7 @@ function App() {
         ]}
       />
 
-      <section className="md:p-16 lg:p-24 h-screen w-screen flex items-center justify-evenly bg-black text-white font-ArimaMadurai">
+      <section id="contact" className="md:p-16 lg:p-24 h-screen w-screen flex items-center justify-evenly bg-black text-white font-ArimaMadurai">
         <div className="mx-5 flex h-full flex-col justify-evenly w-1/2">
           <h1 className="text-6xl text-center">CONTACTO:</h1>
           <div className="text-center">
@@ -221,7 +221,7 @@ function App() {
           </div>
         </div>
         <form name="Contacto | Adriana Alfonso" method="post" className="mx-5 text-black flex w-1/2 items-center flex-col">
-          <input type="hidden" name="Contacto | Adriana Alfonso" value="contact-form" />
+          <input type="hidden" name="form-name" value="Contacto | Adriana Alfonso" />
           <div className="my-2 w-full">
             <label className="block" htmlFor="name">Nombre</label>
             <input id="name" name="Nombre" className="p-1 rounded w-full" type="text" placeholder="Nombre" />
