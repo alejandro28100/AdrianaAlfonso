@@ -22,6 +22,11 @@ function App() {
     }
   }, [isSibarActive])
 
+  function closeSidebar() {
+    setIsSibarActive(false);
+  }
+
+
   return (
     <div className="overflow-x-hidden">
 
@@ -62,11 +67,19 @@ function App() {
                 <AiOutlineClose className="w-8 h-8" />
               </button>
             </li>
-            <li className="py-4">Inicio</li>
-            <li className="py-4">Sobre mí</li>
-            <li className="py-4">Formación</li>
-            <li className="py-4">Experiencia</li>
-            <li className="py-4">Contacto</li>
+            <li onClick={closeSidebar} className="py-4">
+              <a href="#about" >
+                Sobre mí
+              </a>
+            </li>
+            <li onClick={closeSidebar} className="py-4">
+              <a href="#experience">
+                Experiencia
+              </a>
+            </li>
+            <li onClick={closeSidebar} className="py-4">
+              <a href="#contact">Contacto</a>
+            </li>
           </ul>
         </nav>
       </header>
