@@ -84,8 +84,9 @@ function App() {
         </nav>
       </header>
 
-      <section id="about" style={{ backgroundImage: "url('/images/2.png')" }} className="min-h-screen w-screen block lg:flex flex-col justify-center bg-no-repeat bg-contain md:bg-cover bg-bottom lg:bg-center">
-        <article className="lg:m-20 md:w-7/12 lg:w-5/12 p-10 md:p-20 bg-white">
+      <section id="about" className="md:overflow-hidden my-10 lg:my-0 h-screen w-screen lg:flex justify-center lg:justify-start relative">
+        <img className="absolute object-cover -z-1 inset-0" src="/images/2.png" alt="" />
+        <article className="h-auto lg:m-16 md:w-7/12 lg:w-5/12 p-10 md:p-16 bg-white">
           <h1 className="font-ArimaMadurai text-5xl md:text-6xl lg:text-7xl text-center font-extrabold my-4">Sobre mí</h1>
           <p className="font-sans font-light text-sm md:text-base text-justify mb-3 md:mb-4">
             Mi nombre es Adriana Elizabeth Alfonso Cayetano, soy
@@ -120,22 +121,22 @@ function App() {
         </article>
       </section>
 
-      <section id="education" className="flex items-center flex-col lg:flex-row w-screen min-h-screen" >
-        <img className="order-last md:order-first object-cover w-full lg:w-3/12 xl:w-4/12 max-h-48 md:max-h-60 lg:max-h-screen lg:h-full" src="/images/3.png" alt="Persona escribiendo en una computadora" />
-        <div className="w-full p-10 md:p-5 lg:p-10">
+      <section id="education" className="my-10 lg:my-0 flex items-center flex-col lg:flex-row w-screen" >
+        <img className="order-last md:order-first object-cover w-full lg:w-3/12 xl:w-4/12 max-h-48 md:max-h-full" src="/images/3.png" alt="Persona escribiendo en una computadora" />
+        <div className="w-auto h-full p-5 md:p-10">
           <h1 className="text-4xl md:text-6xl font-ArimaMadurai font-extrabold my-2 md:my-4 lg:my-12">Formación</h1>
-          <article className="flex flex-col lg:flex-row">
+          <article className="flex flex-col md:flex-row">
             <div className="md:w-1/2">
-              <EducationDetail {...{ image: "/icons/3Icono1IEU.png", heading: "Instituto de Estudios Universitarios", description: "Cursando la Licenciatura en Creación e Innovación de Empresas 2021", first: true }} />
-              <EducationDetail {...{ image: "/icons/3Icono2Colmed.png", heading: "Colmed: Grupo Educativo", description: "Diplomado en Diseño Gráfico 2020" }} />
-              <EducationDetail {...{ image: "/icons/3Icono3TecdeMonterrey.png", heading: "Tecnológico de Monterrey", description: "Certificado en Introducción a las redes sociales. Sus objetivos y sus metas 2020" }} />
-              <EducationDetail {...{ image: "/icons/3Icono4Domestika.png", heading: "Domestika: Comunidad Creativa", description: ["Creación de un logo desde cero 2019", "Fotografía profesional para Instagram 2021", "Estrategias de Instagram para desarrollo de marcas 2021"] }} />
+              <EducationDetail className="my-4" {...{ image: "/icons/3Icono1IEU.png", heading: "Instituto de Estudios Universitarios", description: "Cursando la Licenciatura en Creación e Innovación de Empresas 2021" }} />
+              <EducationDetail className="my-4" {...{ image: "/icons/3Icono2Colmed.png", heading: "Colmed: Grupo Educativo", description: "Diplomado en Diseño Gráfico 2020" }} />
+              <EducationDetail className="my-4 md:my-16" {...{ image: "/icons/3Icono3TecdeMonterrey.png", heading: "Tecnológico de Monterrey", description: "Certificado en Introducción a las redes sociales. Sus objetivos y sus metas 2020" }} />
+              <EducationDetail className="my-4" {...{ image: "/icons/3Icono4Domestika.png", heading: "Domestika: Comunidad Creativa", description: ["Creación de un logo desde cero 2019", "Fotografía profesional para Instagram 2021", "Estrategias de Instagram para desarrollo de marcas 2021"] }} />
             </div>
 
             <div className="md:w-1/2">
-              <EducationDetail {...{ image: "/icons/3Icono5Udemy.png", heading: "Udemy: Aprende en cualquier lugar", description: "Diseño de Interiores con Sweethome3D 2019", first: true }} />
-              <EducationDetail {...{ image: "/icons/3Icono6Capacítate.png", heading: "Fundación Carlos Slim: Capacítate para el empleo", description: ["Programa de educación Financiera 2018", "Auxiliar contable 2018"] }} />
-              <EducationDetail {...{ image: "/icons/3Icono7Nafin.png", heading: "Nacional Financiera S.N.C., I.B.D.", description: ["Plan para tu idea de negocio 2020", "Gestión de costos 2020", "Servicio al cliente 2020", "Plan de continuidad de negocios 2020", "Aspectos legales en el crédito 2020"] }} />
+              <EducationDetail className="mb-4 md:my-4" {...{ image: "/icons/3Icono5Udemy.png", heading: "Udemy: Aprende en cualquier lugar", description: "Diseño de Interiores con Sweethome3D 2019" }} />
+              <EducationDetail className="my-4 md:mt-8 lg:mt-10" {...{ image: "/icons/3Icono6Capacítate.png", heading: "Fundación Carlos Slim: Capacítate para el empleo", description: ["Programa de educación Financiera 2018", "Auxiliar contable 2018"] }} />
+              <EducationDetail className="my-4" {...{ image: "/icons/3Icono7Nafin.png", heading: "Nacional Financiera S.N.C., I.B.D.", description: ["Plan para tu idea de negocio 2020", "Gestión de costos 2020", "Servicio al cliente 2020", "Plan de continuidad de negocios 2020", "Aspectos legales en el crédito 2020"] }} />
             </div>
 
           </article>
@@ -143,6 +144,7 @@ function App() {
       </section>
 
       <ServiceSection
+        className="my-10 lg:my-0"
         id="experience"
         serviceName={<>Branding/ <br /> para eventos</>}
         serviceDescription="Creación de recursos físicos y digitales para eventos."
@@ -155,6 +157,7 @@ function App() {
       />
 
       <ServiceSection
+        className="my-10 lg:my-0"
         serviceName={<>Creación <br /> de logos</>}
         serviceDescription="CONCEPTUALIZACIÓN, BRANDING, MANUAL DE MARCA Y MOKUPS."
         infoAlignment="left"
@@ -167,6 +170,7 @@ function App() {
       />
 
       <ServiceSection
+        className="my-10 lg:my-0"
         bulletsColor="dark"
         serviceName={<>Diseño <br /> de recursos</>}
         serviceDescription="INFOGRAFÍAS, PUBLICACIONES PARA REDES SOCIALES, FLYERS, MEMBRESÍAS Y MÁS."
@@ -179,6 +183,7 @@ function App() {
       />
 
       <ServiceSection
+        className="my-10 lg:my-0"
         bulletsColor="dark"
         serviceName={<>Retoque y <br /> edición</>}
         serviceDescription="RETOQUE FOTOGRÁFICO, RECONSTRUCCIÓN Y PRODUCIIÓN DIGITAL."
@@ -190,17 +195,19 @@ function App() {
       />
 
       <ServiceSection
+        className="my-10 lg:my-0"
         imagesDelay={4000}
         serviceName={<>Personaje y <br /> stickers</>}
         serviceDescription="CREACIÓN DE PERSONAJE O MASCOTA PARA MARCA Y STICKERS PARA WHATSAPP."
         infoAlignment="right"
         images={[
-          { source: "/images/7a.png", labelColor: "#DB9E31", alt: "Mokup Stikers" },
           { source: "/images/7b.png", labelColor: "#DB9E31", alt: "Ejemplos de stikers" },
+          { source: "/images/7a.png", labelColor: "#DB9E31", alt: "Mokup Stikers" },
         ]}
       />
 
       <ServiceSection
+        className="my-10 lg:my-0"
         serviceName={<>Ilustración/ <br /> arte digital</>}
         serviceDescription="ARTE DIGITAL DESDE CERO, PARA USO PERSONAL O PUBLICIDAD PARA MARCA."
         infoAlignment="left"
@@ -212,9 +219,9 @@ function App() {
         ]}
       />
 
-      <section id="contact" className="md:p-16 lg:p-24 h-screen w-screen flex items-center justify-evenly bg-black text-white font-ArimaMadurai">
-        <div className="mx-5 flex h-full flex-col justify-evenly w-1/2">
-          <h1 className="text-6xl text-center">CONTACTO:</h1>
+      <section id="contact" className="p-5 md:p-16 lg:p-24 min-h-screen w-screen flex flex-col lg:flex-row items-center justify-evenly bg-black text-white font-ArimaMadurai">
+        <div className="mx-5 flex h-full flex-col justify-around lg:justify-evenly w-full lg:w-1/2">
+          <h1 className="my-10 md:my-0 text-5xl lg:text-6xl text-center">CONTACTO:</h1>
           <div className="text-center">
             <h2 className="text-4xl">Adriana Alfonso</h2>
             <div className="my-4">
@@ -233,7 +240,7 @@ function App() {
             </div>
           </div>
         </div>
-        <form name="Contacto | Adriana Alfonso" method="post" className="mx-5 text-black flex w-1/2 items-center flex-col">
+        <form name="Contacto | Adriana Alfonso" method="post" className="mx-5 text-black flex w-full lg:w-1/2 items-center flex-col">
           <input type="hidden" name="form-name" value="Contacto | Adriana Alfonso" />
           <div className="my-2 w-full">
             <label className="block" htmlFor="name">Nombre</label>
