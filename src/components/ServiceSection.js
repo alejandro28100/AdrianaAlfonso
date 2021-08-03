@@ -30,7 +30,7 @@ const ServiceSection = (props) => {
             <Swiper
                 autoplay={{
                     delay: props.imagesDelay,
-                    pauseOnMouseEnter: true,
+                    pauseOnMouseEnter: false,
                     disableOnInteraction: false
                 }}
                 pagination={{
