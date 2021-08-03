@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 
 const EducationDetail = (props) => {
-    let { image, heading, description, first } = props;
+    let { image, heading, description, className } = props;
     let isDescriptionList = typeof description === "object";
     return (
-        <figure className={`flex my-4 lg:my-0 ${!first && "mt-4 lg:mt-12"}`}>
+        <figure className={`flex ${className} `}>
             <img className="w-8 h-8 lg:w-12 lg:h-12" src={image} alt={heading} />
             <figcaption className=" mx-2 lg:mx-4 lg:pr-8">
                 <h2 className="text-sm md:text-base font-bold">{heading}</h2>
@@ -30,6 +30,7 @@ const EducationDetail = (props) => {
 EducationDetail.propTypes = {
     image: PropTypes.string.isRequired,
     heading: PropTypes.string.isRequired,
+    className: PropTypes.string,
     description: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.arrayOf(
