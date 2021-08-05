@@ -85,8 +85,8 @@ function App() {
       </header>
 
       <section id="about" className="md:overflow-hidden my-10 lg:my-0 h-screen w-screen lg:flex justify-center lg:justify-start relative">
-        <img className="absolute object-cover -z-1 inset-0" src="/images/2.png" alt="" />
-        <article className="h-auto lg:m-16 md:w-7/12 lg:w-5/12 p-10 md:p-16 bg-white">
+        <img className="absolute object-cover -z-1 inset-0 w-full h-full" src="/images/2.png" alt="" />
+        <article className="h-auto box-content lg:m-16 md:w-7/12 lg:w-5/12 p-10 md:p-16 bg-white">
           <h1 className="font-ArimaMadurai text-5xl md:text-6xl lg:text-7xl text-center font-extrabold my-4">Sobre mí</h1>
           <p className="font-sans font-light text-sm md:text-base text-justify mb-3 md:mb-4">
             Mi nombre es Adriana Elizabeth Alfonso Cayetano, soy
