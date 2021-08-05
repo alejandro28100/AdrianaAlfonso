@@ -30,7 +30,6 @@ function App() {
 
   return (
     <div className="overflow-x-hidden">
-
       <header className="w-screen h-screen relative bg-no-repeat bg-cover bg-center" style={{ backgroundImage: "url('/images/1.png')" }}>
         <nav className="flex flex-col justify-start lg:justify-end h-full">
           <button onClick={() => setIsSibarActive(true)} className={`p-4 self-end lg:hidden text-white text-center ${isSibarActive && "opacity-0"} transition-opacity duration-300 ease-in`} >
