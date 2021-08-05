@@ -11,6 +11,9 @@ module.exports = {
       },
       fontFamily: {
         ArimaMadurai: "'Arima Madurai', cursive"
+      },
+      lineHeight: {
+        screen: "100vh"
       }
     },
   },

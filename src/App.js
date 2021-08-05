@@ -16,16 +16,17 @@ function App() {
   useEffect(() => {
     let { classList } = document.body;
     if (isSibarActive) {
-      classList.add("overflow-hidden");
-    } else {
-      classList.remove("overflow-hidden");
+      return classList.add("overflow-hidden");
     }
+    classList.remove("overflow-hidden");
+
   }, [isSibarActive])
 
   function closeSidebar() {
     setIsSibarActive(false);
   }
 
+  const { matches: isMobile } = window.matchMedia("(max-width: 500px)")
 
   return (
     <div className="overflow-x-hidden">
@@ -195,14 +196,42 @@ function App() {
       />
 
       <ServiceSection
-        className="my-10 lg:my-0"
+        className="my-10 lg:my-0 h-auto lg:h-screen"
         imagesDelay={4000}
         serviceName={<>Personaje y <br /> stickers</>}
         serviceDescription="CREACIÓN DE PERSONAJE O MASCOTA PARA MARCA Y STICKERS PARA WHATSAPP."
         infoAlignment="right"
+        carousel={!isMobile}
+        complementaryContent={
+          <div className="p-5 flex overflow-x-auto h-auto space-x-10 w-full">
+            <video muted playsInline autoPlay loop alt="Sticker hasta mañana" className="h-full mx-auto object-contain" src="/videos/05.webm" />
+            <video muted playsInline autoPlay loop alt="Sticker leé" className="h-full mx-auto object-contain" src="/videos/10.webm" />
+            <video muted playsInline autoPlay loop alt="Sticker risa" className="h-full mx-auto object-contain" src="/videos/15.webm" />
+            <video muted playsInline autoPlay loop alt="Sticker porfavor" className="h-full mx-auto object-contain" src="/videos/17.webm" />
+            <video muted playsInline autoPlay loop alt="Sticker urgente" className="h-full mx-auto object-contain" src="/videos/20.webm" />
+            <video muted playsInline autoPlay loop alt="Sticker sí" className="h-full mx-auto object-contain" src="/videos/23.webm" />
+            <img className="object-contain w-full h-auto" src="/images/7a.png" alt="Conversación Stikers" />
+          </div>
+        }
         images={[
-          { source: "/images/7b.png", labelColor: "#DB9E31", alt: "Ejemplos de stikers" },
+          {
+            type: "component",
+            component: (props) => {
+              let { className, isModalOpen } = props;
+              return (
+                <div className={`${className} ${isModalOpen ? "md:w-2/3" : "md-w-auto"} bg-white grid gap-5 p-10 place-items-center grid-cols-2 grid-rows-3`}>
+                  <video muted playsInline autoPlay loop alt="" className="h-full mx-auto object-contain" src="/videos/05.webm" />
+                  <video muted playsInline autoPlay loop alt="" className="h-full mx-auto object-contain" src="/videos/10.webm" />
+                  <video muted playsInline autoPlay loop alt="" className="h-full mx-auto object-contain" src="/videos/15.webm" />
+                  <video muted playsInline autoPlay loop alt="" className="h-full mx-auto object-contain" src="/videos/17.webm" />
+                  <video muted playsInline autoPlay loop alt="" className="h-full mx-auto object-contain" src="/videos/20.webm" />
+                  <video muted playsInline autoPlay loop alt="" className="h-full mx-auto object-contain" src="/videos/23.webm" />
+                </div>
+              )
+            }
+          },
           { source: "/images/7a.png", labelColor: "#DB9E31", alt: "Mokup Stikers" },
+
         ]}
       />
 
