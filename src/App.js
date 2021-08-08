@@ -5,7 +5,6 @@ import ServiceSection from "./components/ServiceSection"
 import EducationDetail from "./components/EducationDetail";
 
 import "./index.css";
-import Carousel, { CarouselItem } from "./components/Carousel";
 
 function App() {
 
@@ -23,8 +22,6 @@ function App() {
   function closeSidebar() {
     setIsSibarActive(false);
   }
-
-  const { matches: isMobile } = window.matchMedia("(max-width: 500px)")
 
   return (
     <div className="overflow-x-hidden">
