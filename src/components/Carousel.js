@@ -46,7 +46,7 @@ const Carousel = ({ children, speed, onChange, bulletsColor }) => {
                 clearInterval(interval)
             }
         }
-    }, [activeSlide, isPaused])
+    }, [activeSlide, isPaused, speed, updateIndex]);
 
     return (
         <div className="overflow-hidden relative"
