@@ -4,7 +4,7 @@ import { useSwipeable } from 'react-swipeable';
 
 export const CarouselItem = ({ children, width, alignment }) => {
     return (
-        <div className={`inline-flex flex-shrink-0 items-center ${alignment === "left" ? "justify-start" : "justify-end"}  h-full box-content`} style={{ width: width }}>
+        <div className={`pointer-events-none inline-flex flex-shrink-0 items-center ${alignment === "left" ? "lg:justify-start" : "lg:justify-end"} justify-center h-full box-content`} style={{ width: width }}>
             {children}
         </div>
     )
@@ -29,7 +29,9 @@ const Carousel = ({ children, speed, onChange, bulletsColor }) => {
 
     const swipeHandlers = useSwipeable({
         onSwipedLeft: () => updateIndex(activeSlide + 1),
-        onSwipedRight: () => updateIndex(activeSlide - 1)
+        onSwipedRight: () => updateIndex(activeSlide - 1),
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: true
     })
 
     useEffect(() => {
