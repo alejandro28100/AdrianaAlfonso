@@ -1,5 +1,6 @@
 import React, { Children, cloneElement, useEffect, useState } from 'react'
 import PropTypes from "prop-types";
+import { useSwipeable } from 'react-swipeable';
 
 export const CarouselItem = ({ children, width, alignment }) => {
     return (
@@ -16,12 +17,20 @@ const Carousel = ({ children, speed, onChange, bulletsColor }) => {
     let childrenCount = Children.count(children);
 
     const updateIndex = (newIndex) => {
+        if (newIndex < 0) {
+            newIndex = childrenCount - 1;
+        }
         if (newIndex >= childrenCount) {
             newIndex = 0;
         }
         onChange({ newSlideIndex: newIndex })
         setActiveSlide(newIndex);
     };
+
+    const swipeHandlers = useSwipeable({
+        onSwipedLeft: () => updateIndex(activeSlide + 1),
+        onSwipedRight: () => updateIndex(activeSlide - 1)
+    })
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -39,6 +48,7 @@ const Carousel = ({ children, speed, onChange, bulletsColor }) => {
 
     return (
         <div className="overflow-hidden relative"
+            {...swipeHandlers}
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
         >
