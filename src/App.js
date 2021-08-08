@@ -5,9 +5,7 @@ import ServiceSection from "./components/ServiceSection"
 import EducationDetail from "./components/EducationDetail";
 
 import "./index.css";
-import "swiper/swiper.min.css";
-import "swiper/components/pagination/pagination.min.css"
-
+import Carousel, { CarouselItem } from "./components/Carousel";
 
 function App() {
 
@@ -149,7 +147,7 @@ function App() {
         serviceName={<>Branding/ <br /> para eventos</>}
         serviceDescription="Creación de recursos físicos y digitales para eventos."
         infoAlignment="right"
-        images={[
+        slides={[
           { source: "/images/ex-1a1.png", labelColor: "#434655", alt: "Boletos para eventos", },
           { source: "/images/ex-1b.png", labelColor: "#434655", alt: "Invitaciones para eventos", },
           { source: "/images/ex-1c.png", labelColor: "#434655", alt: "Banners para eventos", },
@@ -161,7 +159,7 @@ function App() {
         serviceName={<>Creación <br /> de logos</>}
         serviceDescription="CONCEPTUALIZACIÓN, BRANDING, MANUAL DE MARCA Y MOKUPS."
         infoAlignment="left"
-        images={[
+        slides={[
           { source: "/images/4a.png", labelColor: "#A70000", alt: "Mokups Bocadito" },
           { source: "/images/4b.png", labelColor: "#ED80A2", alt: "Mokups Ilustrame la vida" },
           { source: "/images/4c.png", labelColor: "#EA4D01", alt: "Mokups Universal Dark Kitchen" },
@@ -175,7 +173,7 @@ function App() {
         serviceName={<>Diseño <br /> de recursos</>}
         serviceDescription="INFOGRAFÍAS, PUBLICACIONES PARA REDES SOCIALES, FLYERS, MEMBRESÍAS Y MÁS."
         infoAlignment="right"
-        images={[
+        slides={[
           { source: "/images/5a.png", labelColor: "#DB9E31", alt: "Diseños CANIRAC" },
           { source: "/images/5b.png", labelColor: "#6C63FC", alt: "Diseños CURU" },
           { source: "/images/5c.png", labelColor: "#A70000", alt: "Diseños AMentors" }
@@ -188,49 +186,33 @@ function App() {
         serviceName={<>Retoque y <br /> edición</>}
         serviceDescription="RETOQUE FOTOGRÁFICO, RECONSTRUCCIÓN Y PRODUCIIÓN DIGITAL."
         infoAlignment="left"
-        images={[
+        slides={[
           { source: "/images/6a.png", labelColor: "#29AED9", alt: "Revista COLMED" },
           { source: "/images/6b.png", labelColor: "#CC2219", alt: "Retoque de fotografías" },
         ]}
       />
 
       <ServiceSection
-        className="my-10 lg:my-0 h-auto lg:h-screen"
+        className="my-10 lg:my-0"
         imagesDelay={4000}
-        serviceName={<>Personaje y <br /> stickers</>}
+        serviceName={<>Personajes y <br /> stickers</>}
         serviceDescription="CREACIÓN DE PERSONAJE O MASCOTA PARA MARCA Y STICKERS PARA WHATSAPP."
         infoAlignment="right"
-        carousel={!isMobile}
-        complementaryContent={
-          <div className="p-5 flex overflow-x-auto h-auto space-x-10 w-full">
-            <video muted playsInline autoPlay loop alt="Sticker hasta mañana" className="h-full mx-auto object-contain" src="/videos/05.webm" />
-            <video muted playsInline autoPlay loop alt="Sticker leé" className="h-full mx-auto object-contain" src="/videos/10.webm" />
-            <video muted playsInline autoPlay loop alt="Sticker risa" className="h-full mx-auto object-contain" src="/videos/15.webm" />
-            <video muted playsInline autoPlay loop alt="Sticker porfavor" className="h-full mx-auto object-contain" src="/videos/17.webm" />
-            <video muted playsInline autoPlay loop alt="Sticker urgente" className="h-full mx-auto object-contain" src="/videos/20.webm" />
-            <video muted playsInline autoPlay loop alt="Sticker sí" className="h-full mx-auto object-contain" src="/videos/23.webm" />
-            <img className="object-contain w-full h-auto" src="/images/7a.png" alt="Conversación Stikers" />
-          </div>
-        }
-        images={[
+        slides={[
           {
             type: "component",
-            component: (props) => {
-              let { className, isModalOpen } = props;
-              return (
-                <div className={`${className} ${isModalOpen ? "md:w-2/3" : "md-w-auto"} bg-white grid gap-5 p-10 place-items-center grid-cols-2 grid-rows-3`}>
-                  <video muted playsInline autoPlay loop alt="" className="h-full mx-auto object-contain" src="/videos/05.webm" />
-                  <video muted playsInline autoPlay loop alt="" className="h-full mx-auto object-contain" src="/videos/10.webm" />
-                  <video muted playsInline autoPlay loop alt="" className="h-full mx-auto object-contain" src="/videos/15.webm" />
-                  <video muted playsInline autoPlay loop alt="" className="h-full mx-auto object-contain" src="/videos/17.webm" />
-                  <video muted playsInline autoPlay loop alt="" className="h-full mx-auto object-contain" src="/videos/20.webm" />
-                  <video muted playsInline autoPlay loop alt="" className="h-full mx-auto object-contain" src="/videos/23.webm" />
-                </div>
-              )
-            }
+            component: () => (
+              <div className={`flex flex-wrap items-center justify-center space-x-4 space-y-4 md:space-x-6 md:space-y-6 md:p-5 lg:space-x-10 lg:space-y-10`}>
+                <video muted playsInline autoPlay loop alt="" className="w-20 md:w-36 lg:w-48 object-contain" src="/videos/05.webm" />
+                <video muted playsInline autoPlay loop alt="" className="w-20 md:w-36 lg:w-48 object-contain" src="/videos/10.webm" />
+                <video muted playsInline autoPlay loop alt="" className="w-20 md:w-36 lg:w-48 object-contain" src="/videos/15.webm" />
+                <video muted playsInline autoPlay loop alt="" className="w-20 md:w-36 lg:w-48 object-contain" src="/videos/17.webm" />
+                <video muted playsInline autoPlay loop alt="" className="w-20 md:w-36 lg:w-48 object-contain" src="/videos/20.webm" />
+                <video muted playsInline autoPlay loop alt="" className="w-20 md:w-36 lg:w-48 object-contain" src="/videos/23.webm" />
+              </div>
+            )
           },
           { source: "/images/7a.png", labelColor: "#DB9E31", alt: "Mokup Stikers" },
-
         ]}
       />
 
@@ -239,14 +221,13 @@ function App() {
         serviceName={<>Ilustración/ <br /> arte digital</>}
         serviceDescription="ARTE DIGITAL DESDE CERO, PARA USO PERSONAL O PUBLICIDAD PARA MARCA."
         infoAlignment="left"
-        images={[
+        slides={[
           { source: "/images/8a.png", labelColor: "#427A1A", alt: "Ilustraciones" },
           { source: "/images/8b.png", labelColor: "#315BBA", alt: "Ilustraciones" },
           { source: "/images/8c.png", labelColor: "#A8A7A3", alt: "Ilustraciones" },
           { source: "/images/8d.png", labelColor: "#EDBE26", alt: "Ilustraciones" },
         ]}
       />
-
       <section id="contact" className="p-5 md:p-16 lg:p-24 min-h-screen w-screen flex flex-col lg:flex-row items-center justify-evenly bg-black text-white font-ArimaMadurai">
         <div className="mx-5 flex h-full flex-col justify-around lg:justify-evenly w-full lg:w-1/2">
           <h1 className="my-10 md:my-0 text-5xl lg:text-6xl text-center">CONTACTO:</h1>
@@ -287,7 +268,7 @@ function App() {
 
       </section>
 
-    </div>
+    </div >
   );
 }
 
