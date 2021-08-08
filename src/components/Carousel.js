@@ -35,6 +35,18 @@ const Carousel = ({ children, speed, onChange, bulletsColor }) => {
     })
 
     useEffect(() => {
+        const updateIndex = (newIndex) => {
+            if (newIndex < 0) {
+                newIndex = childrenCount - 1;
+            }
+            if (newIndex >= childrenCount) {
+                newIndex = 0;
+            }
+            onChange({ newSlideIndex: newIndex })
+            setActiveSlide(newIndex);
+        };
+
+
         const interval = setInterval(() => {
             if (!isPaused) {
                 updateIndex(activeSlide + 1);
@@ -46,7 +58,7 @@ const Carousel = ({ children, speed, onChange, bulletsColor }) => {
                 clearInterval(interval)
             }
         }
-    }, [activeSlide, isPaused, speed]);
+    }, [activeSlide, speed, isPaused, onChange, childrenCount]);
 
     return (
         <div className="overflow-hidden relative"
