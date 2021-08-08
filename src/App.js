@@ -187,6 +187,7 @@ function App() {
         serviceDescription="RETOQUE FOTOGRÁFICO, RECONSTRUCCIÓN Y PRODUCIIÓN DIGITAL."
         infoAlignment="left"
         slides={[
+          { source: "/images/revista.jpeg", labelColor: "#434655", alt: "Boletín Informativo CANIRAC Puebla" },
           { source: "/images/6a.png", labelColor: "#29AED9", alt: "Revista COLMED" },
           { source: "/images/6b.png", labelColor: "#CC2219", alt: "Retoque de fotografías" },
         ]}
@@ -198,8 +199,10 @@ function App() {
         serviceName={<>Personajes y <br /> stickers</>}
         serviceDescription="CREACIÓN DE PERSONAJE O MASCOTA PARA MARCA Y STICKERS PARA WHATSAPP."
         infoAlignment="right"
+        bulletsColor="dark"
         slides={[
           {
+            labelColor: "#DB9E31",
             type: "component",
             component: () => (
               <div className={`flex flex-wrap items-center justify-center space-x-4 space-y-4 md:space-x-6 md:space-y-6 md:p-5 lg:space-x-10 lg:space-y-10`}>
